@@ -1,0 +1,212 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root {
+  /* Base: Light mode defaults */
+  --bg: #F8FAFC;                    /* slate-50 */
+  --surface: #FFFFFF;
+  --surface-muted: #F1F5F9;         /* slate-100 */
+  --surface-elevated: #FFFFFF;
+
+  /* Text */
+  --text: #0F172A;                  /* slate-900 */
+  --text-muted: #334155;            /* slate-700 */
+
+  /* Borders/Dividers */
+  --border: oklch(0.922 0 0);                /* slate-200 */
+
+  /* Accent */
+  --accent: oklch(0.97 0 0);                /* indigo-600 */
+  --accent-hover: #4338CA;          /* indigo-700 */
+  --accent-subtle: #EEF2FF;         /* indigo-50 */
+  --focus: #6366F1;                 /* indigo-500 */
+
+  /* State */
+  --success: #16A34A;
+  --warning: #D97706;
+  --error: #DC2626;
+  --info: #0284C7;
+
+  /* Misc */
+  --selection: #C7D2FE;             /* indigo-200 */
+  --shadow: 0 6px 24px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.06);
+
+  /* Backward-compatible aliases */
+
+  --radius: 0.625rem;
+
+  --background: oklch(1 0 0);
+
+  --foreground: oklch(0.145 0 0);
+
+  --card: oklch(1 0 0);
+
+  --card-foreground: oklch(0.145 0 0);
+
+  --popover: oklch(1 0 0);
+
+  --popover-foreground: oklch(0.145 0 0);
+
+  --primary: oklch(0.205 0 0);
+
+  --primary-foreground: oklch(0.985 0 0);
+
+  --secondary: oklch(0.97 0 0);
+
+  --secondary-foreground: oklch(0.205 0 0);
+
+  --muted: oklch(0.97 0 0);
+
+  --muted-foreground: oklch(0.556 0 0);
+
+  --accent-foreground: oklch(0.205 0 0);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --input: oklch(0.922 0 0);
+
+  --ring: oklch(0.708 0 0);
+
+  --chart-1: oklch(0.646 0.222 41.116);
+
+  --chart-2: oklch(0.6 0.118 184.704);
+
+  --chart-3: oklch(0.398 0.07 227.392);
+
+  --chart-4: oklch(0.828 0.189 84.429);
+
+  --chart-5: oklch(0.769 0.188 70.08);
+
+  --sidebar: oklch(0.985 0 0);
+
+  --sidebar-foreground: oklch(0.145 0 0);
+
+  --sidebar-primary: oklch(0.205 0 0);
+
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+
+  --sidebar-accent: oklch(0.97 0 0);
+
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+
+  --sidebar-border: oklch(0.922 0 0);
+
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+
+/* Tailwind v4 inline theme tokens, mapped to our CSS variables */
+@theme inline {
+  /* Colors */
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+
+  /* Fonts (existing) */
+  --font-sans: var(--font-bricolage);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* Base styles */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-bricolage);
+}
+
+::selection {
+  background: var(--selection);
+}
+
+/* Removed custom helper classes to avoid overriding Tailwind utilities */
+
+.dark {
+  --bg: #0B1220;                    /* deep navy */
+  --surface: #111827;               /* gray-900 */
+  --surface-muted: #0F172A;         /* slate-900 */
+  --surface-elevated: #0F172A;      /* gray-800 */
+
+  --text: #E5E7EB;                  /* gray-200 */
+  --text-muted: #9CA3AF;            /* gray-400 */
+
+  --border: #2A3441;                /* subtle blue-gray */
+
+  --accent: #A5B4FC;                /* indigo-300 */
+  --accent-hover: #818CF8;          /* indigo-400 */
+  --accent-subtle: rgba(99, 102, 241, 0.18);
+  --focus: #818CF8;
+
+  --selection: #312E81;             /* indigo-900 */
+  --shadow: 0 8px 28px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(0, 0, 0, 0.35);
+
+  /* Aliases for shadcn/ui compatibility */
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--surface-elevated);
+  --card-foreground: var(--text);
+  --popover: var(--surface-elevated);
+  --popover-foreground: var(--text);
+  --primary: var(--accent);
+  --primary-foreground: #0F172A; /* slate-900 */
+  --secondary: var(--surface-muted);
+  --secondary-foreground: var(--text);
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--text-muted);
+  --accent-foreground: var(--text);
+  --destructive: #F87171; /* red-400 */
+  --input: var(--border);
+  --ring: var(--focus);
+}
+
+.card-bg {
+  background-color: #F1F5F9;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
