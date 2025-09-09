@@ -31,10 +31,10 @@ export default async function NoteDetailsPage({ params }: PageProps) {
                     </div>
                 </CardHeader>
                 <CardContent className="prose prose-sm dark:prose-invert max-w-none whitespace-pre-wrap leading-relaxed">
+                    <div className='text-lg mb-4'>{content}</div>
                     {summary && (
-                        <p className="mb-4 text-muted-foreground">{summary}</p>
+                        <p className="text-muted-foreground">{summary}</p>
                     )}
-                    <div className='text-lg'>{content}</div>
                 </CardContent>
                 <CardFooter>
                     <div className="flex flex-wrap gap-2">

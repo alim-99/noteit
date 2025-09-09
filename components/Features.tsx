@@ -21,7 +21,7 @@ export default function FeatureSection() {
             {
                   icon: <Shield className="w-6 h-6 text-red-500" />,
                   title: "Secure & Private",
-                  description: "Your notes are safe and encrypted with Supabase.",
+                  description: "Your notes are safe and encrypted.",
             },
       ];
 

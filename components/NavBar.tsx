@@ -10,11 +10,16 @@ const NavBar = () => {
       const [open, setOpen] = useState(false);
 
       return (
-            <nav className="bg-surface border-b border-border text-foreground">
-                  <div className="flex items-center justify-between py-4 px-5 max-w-7xl mx-auto">
+            <nav className="bg-surface border-b border-border 
+            text-foreground">
+                  <div className="flex items-center justify-between py-4 
+                  px-5 max-w-7xl mx-auto">
                         <div className='flex items-center gap-2'>
-                              <Image className="select-none brightness-20 dark:invert" src="/notes-svgrepo-com.svg" alt='logo' width={40} height={40} />
-                              <h1 className='font-bold text-2xl tracking-tight'>Noteit</h1>
+                              <Image className="select-none brightness-20 
+                              dark:invert" src="/notes-svgrepo-com.svg" 
+                              alt='logo' width={40} height={40} />
+                              <h1 className='font-bold text-2xl 
+                              tracking-tight'>Noteit</h1>
                         </div>
 
                         {/* Desktop links */}
@@ -30,7 +35,9 @@ const NavBar = () => {
 
                         {/* Mobile menu button */}
                         <button
-                              className="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-accent dark:hover:bg-[var(--accent-subtle)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                              className="md:hidden inline-flex items-center justify-center 
+                              rounded-md p-2 hover:bg-accent dark:hover:bg-[var(--accent-subtle)] 
+                              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                               aria-label="Toggle menu"
                               aria-expanded={open}
                               onClick={() => setOpen(!open)}
@@ -51,16 +58,17 @@ const NavBar = () => {
 
                   {/* Mobile dropdown */}
                   {open && (
-                        <div className="md:hidden px-5 pb-4 space-y-1 border-t border-border bg-surface">
+                        <div className="md:hidden px-5 pb-4 space-y-1 
+                        border-t border-border bg-surface">
                               <Link onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md transition-colors hover:bg-accent dark:hover:bg-[var(--accent-subtle)]" href="/">Home</Link>
-                              <Link onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md transition-colors hover:bg-accent dark:hover:bg-[var(--accent-subtle)]" href="/dashboard">Dashboard</Link>
                               <Link onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md transition-colors hover:bg-accent dark:hover:bg-[var(--accent-subtle)]" href="/create-note">Create Note</Link>
+                              <Link onClick={() => setOpen(false)} className="block px-3 py-2 rounded-md transition-colors hover:bg-accent dark:hover:bg-[var(--accent-subtle)]" href="/dashboard">Dashboard</Link>
                               <div className="px-3 pt-1">
                                     <ModeToggle />
                                     <div className='flex flex-col pt-2'>
-                                    <SignedIn>
-                                          <UserButton />
-                                    </SignedIn>
+                                          <SignedIn>
+                                                <UserButton />
+                                          </SignedIn>
                                     </div>
                               </div>
                         </div>
