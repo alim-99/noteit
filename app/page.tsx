@@ -23,7 +23,10 @@ export default function Home() {
             Get Started
           </Link>
           <SignedOut>
-            <Link href="/sign-in">
+            <Link 
+              href="/sign-in" 
+              className="px-5 py-2.5 rounded-md border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
               Sign In
             </Link>
           </SignedOut>
