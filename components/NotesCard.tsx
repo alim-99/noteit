@@ -89,9 +89,9 @@ const NotesCard: React.FC<NotesCardProps> = ({
 
                   <CardContent className="pt-4">
                         {summary ? (
-                              <p className="whitespace-pre-line text-muted-foreground line-clamp-4">{summary}</p>
+                              <p className="whitespace-pre-line text-muted-foreground line-clamp-6">{summary}</p>
                         ) : (
-                              <p className="line-clamp-4 text-xl text-muted-foreground">{content}</p>
+                              <p className="line-clamp-6 text-xl text-muted-foreground">{content}</p>
                         )}
                   </CardContent>
 
