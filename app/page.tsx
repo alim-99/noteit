@@ -1,10 +1,23 @@
+"use client";
+
 import FeatureSection from "@/components/Features";
 import Footer from "@/components/Footer";
 import HowItWorksSection from "@/components/HowTos";
-import { SignedOut, SignInButton } from "@clerk/nextjs";
+import { SignInButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const { isLoaded, isSignedIn } = useUser();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !isLoaded) {
+    return null;
+  }
   return (
     <main className="flex flex-col items-center justify-center min-h-[calc(100vh-64px)] px-6">
       <section className="max-w-3xl text-center space-y-6 py-32">
@@ -22,11 +35,11 @@ export default function Home() {
           >
             Get Started
           </Link>
-          <SignedOut>
+          {!isSignedIn && (
               <SignInButton>
                   <button className="px-5 py-2.5 rounded-md border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">Sign In</button>
               </SignInButton>
-          </SignedOut>
+          )}
         </div>
       </section>
           <FeatureSection />
