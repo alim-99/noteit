@@ -128,7 +128,10 @@ const UpdateNoteForm = ({ note }: UpdateNoteFormProps) => {
                                     <FormItem>
                                           <FormLabel>Content</FormLabel>
                                           <FormControl>
-                                                <Textarea placeholder="Enter the content you want to add" {...field} className="w-100 h-20" />
+                                                <Textarea 
+                                                placeholder="Enter the content you want to add" 
+                                                {...field} className="w-100 h-fit" 
+                                                />
                                           </FormControl>
                                           <FormMessage />
                                     </FormItem>
@@ -198,7 +201,7 @@ const UpdateNoteForm = ({ note }: UpdateNoteFormProps) => {
                                                       <Textarea
                                                             placeholder="Enter a summary of your note"
                                                             {...field}
-                                                            className="w-100 h-20"
+                                                            className="w-100 h-fit"
                                                       />
                                                 </FormControl>
                                                 <FormMessage />
