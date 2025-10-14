@@ -30,7 +30,7 @@ export default function Home() {
         </p>
         <div className="flex items-center justify-center gap-3 pt-2">
           <Link
-            href="/sign-up"
+            href="/create-note"
             className="px-5 py-2.5 rounded-md bg-blue-600 dark:hover:bg-blue-700 transition-colors"
           >
             Get Started
