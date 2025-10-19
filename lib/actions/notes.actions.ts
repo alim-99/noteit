@@ -36,19 +36,28 @@ export const createNote = async (formData: CreateNoteParams) => {
 }
 
 export const getNotes = async () => {
-      const { userId } = await auth();
+      try {
+            const { userId } = await auth();
+            
+            if (!userId) {
+                  console.log('No user ID found, returning empty notes array');
+                  return [];
+            }
 
-      const supabase = await createSupbaseClient();
+            const supabase = await createSupbaseClient();
 
       const { data, error } = await supabase.from('notes').select('*').eq('user_id', userId);
 
-      if (error || !data) {
-            throw new Error("Failed to get Notes", error);
+            if (error) {
+                  console.error('Error fetching notes:', error);
+                  return [];
+            }
+
+            return data || [];
+      } catch (error) {
+            console.error('Error in getNotes:', error);
+            return [];
       }
-
-      return data;
-
-
 }
 
 export const updateNote = async ({ noteId, updates }: UpdateNoteParams) => {
