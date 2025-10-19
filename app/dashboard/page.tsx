@@ -2,6 +2,8 @@ import NotesCard from '@/components/NotesCard';
 import { getNotes } from '@/lib/actions/notes.actions'
 import React from 'react'
 
+export const revalidate = 0;
+
 const page = async () => {
     const notes = await getNotes();
 
