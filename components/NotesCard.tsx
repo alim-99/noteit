@@ -42,7 +42,7 @@ const NotesCard: React.FC<NotesCardProps> = ({
                         body: JSON.stringify({ note: content }),
                   });
 
-                  if(!res.ok) {
+                  if (!res.ok) {
                         throw new Error('Error Summarizing Note');
                   }
 
@@ -54,7 +54,7 @@ const NotesCard: React.FC<NotesCardProps> = ({
                               noteId: id,
                               summary: generatedSummary
                         });
-                        
+
                         // Refresh the page to show the updated note
                         router.refresh();
                   }
@@ -67,11 +67,6 @@ const NotesCard: React.FC<NotesCardProps> = ({
       return (
             <Card
                   className={cn('group cursor-pointer border w-full max-w-sm dark:bg-card text-card-foreground backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 ease-out hover:ring-1 hover:ring-primary/30', className)}
-                  onClick={(e) => {
-                        if (e.target === e.currentTarget) {
-                              router.push(`/note-details/${id}`);
-                        }
-                  }}
             >
                   <CardHeader className="border-b border-neutral-200 dark:border-neutral-800">
                         <div className="flex items-center justify-between gap-3">
@@ -84,6 +79,13 @@ const NotesCard: React.FC<NotesCardProps> = ({
                                           {dateLabel && <span className="text-xs text-muted-foreground">• {dateLabel}</span>}
                                     </CardDescription>
                               </div>
+                              <Button
+                                    variant="ghost"
+                                    className='cursor-pointer size-fit'
+                                    onClick={() => router.push(`/note-details/${id}`)}
+                              >
+                                    <span>View Details</span>
+                              </Button>
                         </div>
                   </CardHeader>
 
