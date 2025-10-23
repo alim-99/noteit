@@ -1,6 +1,43 @@
+import { Metadata } from 'next';
 import NotesCard from '@/components/NotesCard';
 import { getNotes } from '@/lib/actions/notes.actions'
 import React from 'react'
+
+export const metadata: Metadata = {
+    title: "Noteit - Dashboard",
+    description: "Manage your notes in the Noteit dashboard.",
+    keywords: ["notes", "noteit", "dashboard", "note management"],
+    openGraph: {
+        title: "Noteit Dashboard",
+        description: "Manage your notes in the Noteit dashboard.",
+        type: "website",
+        images: [
+            {
+                url: "/notes-svgrepo-com.svg",
+                width: 800,
+                height: 600,
+                alt: "Noteit Dashboard"
+            }
+        ]
+    },
+    twitter: {
+        title: "Noteit Dashboard",
+        description: "Manage your notes in the Noteit dashboard.",
+        card: "summary_large_image",
+        images: ["/notes-svgrepo-com.svg"]
+    },
+    robots: {
+        index: false,
+        follow: true,
+        nocache: true,
+        googleBot: {
+            index: false,
+            follow: true,
+            noimageindex: true
+        }
+    },
+    icons: "/notes-svgrepo-com.svg"
+};
 
 export const revalidate = 0;
 

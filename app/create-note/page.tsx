@@ -1,7 +1,44 @@
+import { Metadata } from 'next';
 import CreateNoteForm from '@/components/CreateNoteForm'
 import { auth } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation';
 import React from 'react'
+
+export const metadata: Metadata = {
+  title: "Create New Note - Noteit",
+  description: "Create a new note with Noteit's intuitive editor.",
+  keywords: ["create note", "new note", "noteit", "note taking"],
+  openGraph: {
+    title: "Create New Note - Noteit",
+    description: "Create a new note with Noteit's intuitive editor.",
+    type: "website",
+    images: [
+      {
+        url: "/notes-svgrepo-com.svg",
+        width: 800,
+        height: 600,
+        alt: "Create Note - Noteit"
+      }
+    ]
+  },
+  twitter: {
+    title: "Create New Note - Noteit",
+    description: "Create a new note with Noteit's intuitive editor.",
+    card: "summary_large_image",
+    images: ["/notes-svgrepo-com.svg"]
+  },
+  robots: {
+    index: false,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: true,
+      noimageindex: true
+    }
+  },
+  icons: "/notes-svgrepo-com.svg"
+};
 
 const page = async () => {
     const { userId } = await auth();

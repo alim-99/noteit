@@ -1,8 +1,58 @@
-import React from 'react'
-import { notFound } from 'next/navigation'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { getNoteDetails } from '@/lib/actions/notes.actions'
-import { PageProps } from '@/types'
+import React from 'react';
+import { notFound } from 'next/navigation';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { getNoteDetails } from '@/lib/actions/notes.actions';
+import { PageProps } from '@/types';
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { id } = params;
+    if (!id) return {};
+
+    const note = await getNoteDetails(id);
+
+    if (!note) {
+        return {
+            title: "Note Not Found - Noteit",
+            description: "The requested note could not be found.",
+            robots: {
+                index: false,
+                follow: true
+            }
+        };
+    }
+
+    return {
+        title: `${note.title} - Noteit`,
+        description: note.summary || `View details of ${note.title}`,
+        keywords: [note.title, ...(note.tags || []), "note details", "noteit"],
+        openGraph: {
+            title: `${note.title} - Noteit`,
+            description: note.summary || `View details of ${note.title}`,
+            type: "article",
+            images: [
+                {
+                    url: "/notes-svgrepo-com.svg",
+                    width: 800,
+                    height: 600,
+                    alt: note.title
+                }
+            ]
+        },
+        alternates: {
+            canonical: `https://noteit-pied.vercel.app/note-details/${note.id}`,
+        },
+        robots: {
+            index: true,
+            follow: true,
+            googleBot: {
+                index: true,
+                follow: true
+            }
+        },
+        icons: "/notes-svgrepo-com.svg"
+    };
+}
 
 export default async function NoteDetailsPage({ params }: PageProps) {
     const { id } = params
