@@ -46,9 +46,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     }
   },
-  alternates: {
-    canonical: "/",
-  },
   icons: "/notes-svgrepo-com.svg"
 };
 
