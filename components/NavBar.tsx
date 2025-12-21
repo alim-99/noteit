@@ -19,7 +19,7 @@ const NavBar = () => {
                               dark:invert" src="/notes-svgrepo-com.svg" 
                               alt='logo' width={40} height={40} />
                               <h1 className='font-bold text-2xl 
-                              tracking-tight'>Noteit</h1>
+                              tracking-tight'>NexNote</h1>
                         </div>
 
                         {/* Desktop links */}

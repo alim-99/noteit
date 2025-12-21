@@ -12,9 +12,9 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "Noteit",
+  title: "NexNote",
   description: "Create notes, update and summarize notes with ai model.",
-  keywords: ["notes", "noteit", "note builder", "note summarizer", "note"],
+  keywords: ["notes", "nexnote", "NexNote" ,"note builder", "note summarizer", "note"],
   openGraph: {
     title: "Best Ai-Note Builder",
     description: "Create notes, update and summarize notes with ai model.",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/notes-svgrepo-com.svg",
         width: 800,
         height: 600,
-        alt: "Noteit"
+        alt: "NexNote"
       }
     ]
   },

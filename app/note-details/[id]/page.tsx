@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     if (!note) {
         return {
-            title: "Note Not Found - Noteit",
+            title: "Note Not Found - Nexnote",
             description: "The requested note could not be found.",
             robots: {
                 index: false,
@@ -23,11 +23,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 
     return {
-        title: `${note.title} - Noteit`,
+        title: `${note.title} - Nexnote`,
         description: note.summary || `View details of ${note.title}`,
         keywords: [note.title, ...(note.tags || []), "note details", "noteit"],
         openGraph: {
-            title: `${note.title} - Noteit`,
+            title: `${note.title} - Nexnote`,
             description: note.summary || `View details of ${note.title}`,
             type: "article",
             images: [
