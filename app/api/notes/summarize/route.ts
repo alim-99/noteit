@@ -2,6 +2,8 @@ import Groq from "groq-sdk";
 
 const groq = new Groq({ apiKey: process.env.NEXT_GROQ_API_KEY });
 
+export const dynamic = 'force-dynamic'
+
 export async function POST(req: Request) {
       try {
             const { note } = await req.json();
